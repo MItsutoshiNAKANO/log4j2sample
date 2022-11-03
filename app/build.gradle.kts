@@ -17,16 +17,18 @@ repositories {
 }
 
 dependencies {
-    // Use JUnit Jupiter for testing.
-    testImplementation("org.junit.jupiter:junit-jupiter:5.8.2")
+    // https://mvnrepository.com/artifact/org.junit.jupiter/junit-jupiter-api
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.1")
 
-    // This dependency is used by the application.
-    implementation("com.google.guava:guava:31.0.1-jre")
+    // https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core
+    implementation("org.apache.logging.log4j:log4j-core:2.19.0")
 }
 
 application {
     // Define the main class for the application.
-    mainClass.set("com.gmail.itsango.log4j.sample.App")
+    mainClass.set("com.gmail.itsango.log4j2.sample.App")
+    // https://docs.gradle.org/current/userguide/application_plugin.html
+    applicationDefaultJvmArgs = listOf("-Dlog4j2.configurationFile=../etc/log4j2.xml")
 }
 
 tasks.named<Test>("test") {

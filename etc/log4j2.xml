@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="warn" monitorInterval="5">
+    <Appenders>
+        <Console name="Console" target="SYSTEM_ERR">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger %location - %msg%n"/>
+        </Console>
+        <RollingFile name="RollingFile" fileName="app.log"
+                     filePattern="app-%d{yyyyMMdd_HHmmss}.log.gz">
+            <PatternLayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %-5level %logger %location - %msg%n"/>
+            <SizeBasedTriggeringPolicy size="5 MB" />
+        </RollingFile>
+    </Appenders>
+    <Loggers>
+        <Root level="info">
+            <AppenderRef ref="RollingFile" level="info"/>
+            <AppenderRef ref="Console" level="warn"/>
+        </Root>
+    </Loggers>
+</Configuration>
