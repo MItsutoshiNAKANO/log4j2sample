@@ -11,9 +11,10 @@ public class App {
     static final Logger logger = LogManager.getFormatterLogger();
 
     public static void main(String[] args) throws InterruptedException {
-        System.getProperties().forEach((k, v)->logger.info("%s=%s", k, v));
+        System.getProperties().forEach((k, v)->logger.debug("%s=%s", k, v));
         for (;;) {
             logger.trace("trace");
+            logger.debug("debug");
             logger.info("info");
             logger.warn("warn");
             logger.error("error");
